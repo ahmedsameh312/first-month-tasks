@@ -90,6 +90,7 @@ function TodoItem({ todo, onDelete, onEdit }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState(todo.todo);
   const [viewDetails, setViewDetails] = useState(false);
+  const [isCompleted, setIsCompleted] = useState(false);
 
   function handleSave() {
     if (!editedText) return;
@@ -99,6 +100,10 @@ function TodoItem({ todo, onDelete, onEdit }) {
 
   function handleViewDetails() {
     setViewDetails((viewDetails) => !viewDetails);
+  }
+
+  function handleCompleted() {
+    setIsCompleted((isCompleted) => !isCompleted);
   }
 
   return (
@@ -113,7 +118,12 @@ function TodoItem({ todo, onDelete, onEdit }) {
         </>
       ) : (
         <>
-          {todo.todo}
+          <input
+            type="checkbox"
+            value={isCompleted}
+            onClick={handleCompleted}
+          />
+          <div className={isCompleted ? "completed" : ""}>{todo.todo}</div>
           <button onClick={() => setIsEditing((isEditing) => !isEditing)}>
             Edit
           </button>

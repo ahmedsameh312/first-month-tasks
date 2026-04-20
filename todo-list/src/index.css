@@ -12,8 +12,6 @@ code {
     source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-.list-item {
-  justify-content: center;
-  align-items: center;
-  display: flex;
+.completed {
+  text-decoration: line-through;
 }
