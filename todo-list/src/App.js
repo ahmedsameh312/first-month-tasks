@@ -4,8 +4,13 @@ import { useState } from "react";
 export default function App() {
   const [todos, setTodos] = useState(initialTodos);
 
-  function handleAddTodo(text) {
-    const newTodo = { id: Date.now(), todo: text, completed: false };
+  function handleAddTodo(text, details) {
+    const newTodo = {
+      id: Date.now(),
+      todo: text,
+      details: details,
+      completed: false,
+    };
     setTodos((prev) => [...prev, newTodo]);
   }
 
@@ -33,14 +38,16 @@ export default function App() {
 
 function AddForm({ onAddItem }) {
   const [text, setText] = useState("");
+  const [details, setDetails] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
     if (!text) {
       return;
     }
-    onAddItem(text);
+    onAddItem(text, details);
     setText("");
+    setDetails("");
   }
 
   return (
@@ -50,6 +57,12 @@ function AddForm({ onAddItem }) {
         placeholder="Add new todo"
         value={text}
         onChange={(e) => setText(e.target.value)}
+      />
+      <label>Details: </label>
+      <input
+        placeholder="Todo's Details"
+        value={details}
+        onChange={(e) => setDetails(e.target.value)}
       />
       <button>Add</button>
     </form>
