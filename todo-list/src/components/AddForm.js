@@ -15,20 +15,22 @@ export default function AddForm({ onAddItem }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <label>Todo: </label>
       <input
+        className="input"
         placeholder="Add new todo"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
       <label>Details: </label>
       <input
+        className="input"
         placeholder="Todo's Details"
         value={details}
         onChange={(e) => setDetails(e.target.value)}
       />
-      <button>Add</button>
+      <button className="btn primary">Add</button>
     </form>
   );
 }

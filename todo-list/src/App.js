@@ -20,14 +20,17 @@ export default function App() {
     setTodos((prev) => prev.filter((item) => item.id !== id));
   }
 
-  function handleEditTodo(id, newText) {
+  function handleEditTodo(id, newText, newDetails) {
     setTodos((prev) =>
-      prev.map((item) => (item.id === id ? { ...item, todo: newText } : item)),
+      prev.map((item) =>
+        item.id === id ? { ...item, todo: newText, details: newDetails } : item,
+      ),
     );
   }
 
   return (
-    <div>
+    <div className="app">
+      <h1 className="title">Todo App</h1>
       <AddForm onAddItem={handleAddTodo} />
       <TodoList
         todos={todos}

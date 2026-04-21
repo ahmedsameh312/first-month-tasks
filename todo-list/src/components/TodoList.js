@@ -2,8 +2,8 @@ import TodoItem from "./TodoItem";
 
 export default function TodoList({ todos, onDeleteItem, onEditItem }) {
   return (
-    <div>
-      <ul>
+    <div className="list-container">
+      <ul className="todo-list">
         {todos.map((item) => (
           <TodoItem
             key={item.id}
