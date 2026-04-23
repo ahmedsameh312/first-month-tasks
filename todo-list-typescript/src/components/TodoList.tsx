@@ -1,11 +1,6 @@
 import TodoItem from "./TodoItem";
 import type { Todo } from "../types";
-
-interface TodoListProps {
-  todos: Todo[];
-  onDeleteItem: (id: number) => void;
-  onEditItem: (id: number, text: string, details: string) => void;
-}
+import type { TodoListProps } from "../types";
 
 export default function TodoList({
   todos,

@@ -1,8 +1,5 @@
 import { useState } from "react";
-
-interface AddFormProps {
-  onAddItem: (text: string, details: string) => void;
-}
+import type { AddFormProps } from "../types";
 
 export default function AddForm({ onAddItem }: AddFormProps) {
   const [text, setText] = useState("");

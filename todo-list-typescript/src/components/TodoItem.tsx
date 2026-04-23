@@ -1,11 +1,5 @@
 import { useState } from "react";
-import type { Todo } from "../types";
-
-interface TodoItemProps {
-  todo: Todo;
-  onDelete: (id: number) => void;
-  onEdit: (id: number, text: string, details: string) => void;
-}
+import type { TodoItemProps } from "../types";
 
 export default function TodoItem({ todo, onDelete, onEdit }: TodoItemProps) {
   const [isEditing, setIsEditing] = useState(false);
